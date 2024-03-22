@@ -3,5 +3,3 @@
 *.pdf
 *.synctex.gz
 *.synctex.gz.sum.synctex
-
-!doc/simplenote-doc.pdf
