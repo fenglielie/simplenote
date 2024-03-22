@@ -2,7 +2,7 @@
 % Email: fenglielie@qq.com
 
 %% 文档类基本信息
-\ProvidesClass{simplenote}[2024/03/11 SimpleNote v1.0 class]
+\ProvidesClass{simplenote}[2024/03/11 SimpleNote v1.1 class]
 \NeedsTeXFormat{LaTeX2e}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
