@@ -216,57 +216,98 @@
 % 中文模式和英文模式的各种引导词设置
 
 \ifdefstring{\SIMPLENOTE@lang}{cn}{%
-    \theoremstyle{plain}% default
-    \newtheorem{theorem}{定理}[section] %
-    \newtheorem{lemma}[theorem]{引理} %
-    \newtheorem{proposition}[theorem]{命题} %
-    \newtheorem*{corollary}{推论} %
-    \theoremstyle{definition} %
-    \newtheorem{definition}{定义}[section] %
-    \newtheorem{conjecture}{猜想}[section] %
-    \newtheorem{example}{例}[section] %
-    \theoremstyle{remark} %
-    \newtheorem*{remark}{\normalfont\bfseries 注} %
-    \newtheorem*{note}{\normalfont\bfseries 笔记} %
-    \newtheorem{case}{\normalfont\bfseries 案例} %
+    % \theoremstyle{plain}% default
+    % \newtheorem{theorem}{定理} %
+    % \newtheorem{lemma}{引理} %
+    % \newtheorem{proposition}{命题} %
+    % \newtheorem*{corollary}{推论} %
+    % \theoremstyle{definition} %
+    % \newtheorem{definition}{定义} %
+    % \newtheorem{example}{例} %
+    % \theoremstyle{remark} %
+    % \newtheorem*{remark}{\normalfont\bfseries 注} %
+    % \newtheorem*{note}{\normalfont\bfseries 笔记} %
 
-    \newenvironment{problem}{\begin{shaded}\par\noindent {\color{ecolor}\normalfont\bfseries 题目 }}{\end{shaded}\par}
-    \newenvironment{solution}{\par\noindent {\color{ecolor}\normalfont\bfseries 解答 }}{\par}
+    % \newenvironment{problem}{\begin{shaded}\par\noindent {\color{ecolor}\normalfont\bfseries 题目 }}{\end{shaded}\par}
+    % \newenvironment{solution}{\par\noindent {\color{ecolor}\normalfont\bfseries 解 }}{\par}
 
-    \renewcommand*{\proofname}{\normalfont\bfseries\color{ecolor}证明} %
+
     \renewcommand\contentsname{\color{ecolor}目录}
-    \renewcommand\refname{\color{ecolor}参考文献} %
     \renewcommand\figurename{图} %
     \renewcommand\tablename{表}
+    \renewcommand\refname{\color{ecolor}参考文献} %
     \newcommand\figref[1]{图~\ref{#1}}
     \newcommand\tabref[1]{表~\ref{#1}}
+    \renewcommand*{\proofname}{\normalfont\bfseries\color{ecolor}证明} %
+
+    \newcommand{\notename}{笔记}
+    \newcommand{\definitionname}{定义}
+    \newcommand{\theoremname}{定理}
+    \newcommand{\lemmaname}{引理}
+    \newcommand{\propositionname}{命题}
+    \newcommand{\corollaryname}{推论}
+    \newcommand{\examplename}{例} %
+    \newcommand{\problemname}{题目}
+    \newcommand{\exercisename}{练习}
+    \newcommand{\remarkname}{注}
+    \newcommand{\solutionname}{解}
 }{\relax}
 
 \ifdefstring{\SIMPLENOTE@lang}{en}{
-    \theoremstyle{plain}% default
-    \newtheorem{theorem}{Theorem}[section] %
-    \newtheorem{lemma}[theorem]{Lemma} %
-    \newtheorem{proposition}[theorem]{Proposition} %
-    \newtheorem*{corollary}{Corollary} %
-    \theoremstyle{definition} %
-    \newtheorem{definition}{Definition}[section] %
-    \newtheorem{conjecture}{Conjecture}[section] %
-    \newtheorem{example}{Example}[section] %
-    \theoremstyle{remark} %
-    \newtheorem*{remark}{Remark} %
-    \newtheorem*{note}{Note} %
-    \newtheorem{case}{Case}
+    % \theoremstyle{plain}% default
+    % \newtheorem{theorem}{Theorem} %
+    % \newtheorem{lemma}{Lemma} %
+    % \newtheorem{proposition}{Proposition} %
+    % \newtheorem*{corollary}{Corollary} %
+    % \theoremstyle{definition} %
+    % \newtheorem{definition}{Definition} %
+    % \newtheorem{example}{Example} %
+    % \theoremstyle{remark} %
+    % \newtheorem*{remark}{Remark} %
+    % \newtheorem*{note}{Note} %
 
-    \newenvironment{problem}{\begin{shaded}\par\noindent {\color{ecolor}\normalfont\bfseries Problem }}{\end{shaded}\par}
-    \newenvironment{solution}{\par\noindent {\color{ecolor}\normalfont\bfseries Solution }}{\par}
+    % \newenvironment{problem}{\begin{shaded}\par\noindent {\color{ecolor}\normalfont\bfseries Problem }}{\end{shaded}\par}
+    % \newenvironment{solution}{\par\noindent {\color{ecolor}\normalfont\bfseries Solution }}{\par}
 
     \renewcommand*{\proofname}{\normalfont\bfseries\color{ecolor} Proof}
     \newcommand\figref[1]{Figure~\ref{#1}}
     \newcommand\tabref[1]{Table~\ref{#1}}
+
+    \newcommand{\definitionname}{Definition}
+    \newcommand{\theoremname}{Theorem}
+    \newcommand{\lemmaname}{Lemma}
+    \newcommand{\propositionname}{Proposition}
+    \newcommand{\corollaryname}{Corollary}
+    \newcommand{\examplename}{Example}
+    \newcommand{\problemname}{Problem}
+    \newcommand{\exercisename}{Exercise}
+    \newcommand{\remarkname}{Remark}
+    \newcommand{\solutionname}{Solution}
+    \renewcommand{\appendixname}{Appendix}
 }{\relax}
 
 
-
+%% 中文字体配套
+\ifcsname heiti\endcsname
+    \newcommand{\cbfseries}{\heiti}
+\else
+    \newcommand{\cbfseries}{\bfseries}
+\fi
+\ifcsname kaishu\endcsname
+    \newcommand{\citshape}{\kaishu}
+\else
+    \newcommand{\citshape}{\itshape}
+\fi
+\ifcsname kaishu\endcsname
+    \newcommand{\cnormal}{\kaishu}
+\else
+    \newcommand{\cnormal}{\normalfont}
+\fi
+\ifcsname fangsong\endcsname
+    \newcommand{\cfs}{\fangsong}
+\else
+    \newcommand{\cfs}{\normalfont}
+\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -347,38 +388,62 @@
 \setlength{\parskip}{3mm}
 \setlength{\parindent}{2em}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% theoremstyle样式修改，应用主题色
 
-% 对于中文判断一下是否支持kaishu
-\ifcsname kaishu\endcsname
-    \newcommand{\citshape}{\kaishu}
-\else
-    \newcommand{\citshape}{\itshape}
-\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 数学定理环境
 
-\newtheoremstyle{plain}{
-    \topsep}{\topsep}{\citshape}{}{%
-    \color{ecolor}\bfseries}{}{%
-    0.5em}{%
-    \thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+% 两个样式
+\newtheoremstyle{defstyle}{3pt}{3pt}{\citshape}{-3pt}{
+    \bfseries\color{ecolor}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
+\newtheoremstyle{thmstyle}{3pt}{3pt}{\citshape}{-3pt}{
+    \bfseries\color{ecolor}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
 
-\newtheoremstyle{definition}{
-    \topsep}{\topsep}{\citshape}{}{%
-    \color{ecolor}\bfseries}{}{%
-    0.5em}{}
 
-% 对于中文判断一下是否支持kaishu
-\ifcsname kaishu\endcsname
-    \newcommand{\cnormal}{\kaishu}
-\else
-    \newcommand{\cnormal}{\normalfont}
-\fi
+\NewDocumentCommand \SIMPLENOTE@newtheorem { m m O{} } {
+    \theoremstyle{#2}
+    \ifblank{#3}{
+        \newtheorem{#1}{\csname #1name\endcsname}
+    }{
+        \newtheorem{#1}[#3]{\csname #1name\endcsname}
+    }
+    \newtheorem*{#1*}{\csname #1name\endcsname}
+}
 
-\newtheoremstyle{remark}{
-    \topsep}{\topsep}{\cnormal}{}{
-    \color{ecolor}\bfseries}{}{
-    0.5em}{}
+% 五个主要的定理类环境
+\SIMPLENOTE@newtheorem{definition}{defstyle}
+\SIMPLENOTE@newtheorem{theorem}{thmstyle}
+\SIMPLENOTE@newtheorem{lemma}{thmstyle}
+\SIMPLENOTE@newtheorem{corollary}{thmstyle}
+\SIMPLENOTE@newtheorem{proposition}{thmstyle}
+
+%% 带编号的example
+\newcounter{exam}
+\setcounter{exam}{0}
+\newenvironment{example}[1][]{
+    \refstepcounter{exam}
+    \par\noindent\textbf{\color{ecolor}{\examplename} \theexam #1 }\rmfamily}{
+    \par\ignorespacesafterend}
+
+%% 带编号的problem
+\newcounter{prob}
+\setcounter{prob}{0}
+\newenvironment{problem}[1][]{
+    \refstepcounter{prob}
+    \par\noindent\textbf{\color{ecolor}{\problemname} \theprob #1 }\rmfamily}{
+    \par\ignorespacesafterend}
+
+%% 带编号的exercise
+\newcounter{exer}
+\setcounter{exer}{0}
+\newenvironment{exercise}[1][]{
+    \refstepcounter{exer}
+    \par\noindent\textbf{\color{ecolor}{\exercisename} \theexer #1 }\rmfamily}{
+    \par\ignorespacesafterend}
+
+% 不带编号的note，remark，solution
+\newenvironment{note}{\par\noindent\textbf{\color{ecolor}\notename} \citshape}{\par}
+\newenvironment{remark}{\par\noindent\textbf{\color{ecolor}\remarkname} \citshape}{\par}
+\newenvironment{solution}{\par\noindent\textbf{\color{ecolor}\solutionname} \cfs}{\par}
 
 
 

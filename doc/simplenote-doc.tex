@@ -281,28 +281,20 @@ SimpleNote支持两种编译方式：\hologo{pdfLaTeX} 和 \hologo{XeLaTeX}。
 
 \subsection{定理类环境}
 
-此模板采用了 \lstinline{amsthm} 中的定理样式，使用了3类定理样式和证明样式，分别为
+本模板支持常见的数学定理环境
+
 \begin{itemize}
-    \item \textbf{plain}：theorem（定理），lemma（引理），proposition（命题），corollary（推论）；
-    \item \textbf{definition}：definition（定义），conjecture（猜想），example（例）；
-    \item \textbf{remark}：remark（注），note（笔记），case（案例）；
-    \item \textbf{proof}：proof（证明）。
+    \item \textit{定理类环境}，包含标题和内容两部分，全部定理类环境使用全局计数器，计数器相互独立。根据样式的不同可以分为 2 种
+          \begin{itemize}
+              \item \textbf{definition(定义)} 环境；
+              \item \textbf{theorem(定理)、lemma(引理)、corollary(推论)、proposition(命题)} 环境；
+          \end{itemize}
+    \item \textit{示例与题目}，有 \textbf{example(例)、problem(题目)、exercise(练习)}环境，使用各自的全局计数器。
+    \item \textit{解答与笔记}，有 \textbf{note(笔记)、remark(注)、solution(解)} 环境，无编号。
 \end{itemize}
-其中关于编号/计数器的细节如下：
-\begin{enumerate}
-    \item 定理环境基于section产生编号，引理和命题共享定理的编号计数器，推论无编号；
-    \item 定义，猜想和例子都基于section产生编号；
-    \item 注记和笔记均无编号，案例采用全局独立的编号。
-\end{enumerate}
+其中定理类环境均有带星号的版本：\textbf{definition*}、\textbf{theorem*}、\textbf{lemma*}、\textbf{corollary*}、\textbf{proposition*}，带星号的定理类环境不会编号。
+除此之外，还有默认可以使用的\textbf{proof(证明)}环境。
 
-\begin{remark}
-    在选用 \lstinline{lang=en} 时，定理类环境的引导词为环境名，并且首字母大写。
-    在选用 \lstinline{lang=cn} 时，引导词全部会改为括号中的中文。
-\end{remark}
-
-\begin{note}
-    除了上述环境，目前顺便定义了两个环境：problem（题目，加阴影）和solution（解答），环境的实现非常简单，不含计数器。
-\end{note}
 
 \subsection{交叉引用}
 
@@ -423,12 +415,6 @@ According to Einstein's theory of relativity \parencite{einstein1905}...
     \end{equation}
 \end{theorem}
 
-\begin{proof}
-    Let $z$ be some element of $xH \cap yH$.  Then $z = xa$ for some $a \in H$, and $z = yb$ for some $b \in H$.
-    If $h$ is any element of $H$ then $ah \in H$ and $a^{-1}h \in H$, since $H$ is a subgroup of $G$.
-    But $zh = x(ah)$ and $xh = z(a^{-1}h)$ for all $h \in H$.
-    Therefore $zH \subset xH$ and $xH \subset zH$, and thus $xH = zH$.  Similarly $yH = zH$, and thus $xH = yH$, as required.
-\end{proof}
 
 \begin{theorem}
     对于Burgers方程，假设给定光滑的初值$u_0(x)$，并且存在某些点满足$u_0'(x) < 0$，
@@ -507,6 +493,7 @@ According to Einstein's theory of relativity \parencite{einstein1905}...
 
 \begin{table}[ht]
     \centering
+    \caption{计算结果}\label{tab:1}
     \begin{tabular}{c|c|ccccc}
         \hline
                               &      & N=25     & N=50       & N=100      & N=200      & N=400      \\
@@ -520,7 +507,6 @@ According to Einstein's theory of relativity \parencite{einstein1905}...
                               & 时间/s & 0.016365 & 0.010492   & 0.034441   & 0.205993   & 1.431576   \\
         \hline
     \end{tabular}
-    \caption{计算结果}\label{tab:1}
 \end{table}
 
 \begin{problem}
@@ -550,14 +536,6 @@ equations to the partial differential equation
     这是remark内容测试。\footfullcite{lubichProjectorsplittingIntegratorDynamical2014}
 \end{remark}
 
-
-\begin{case}
-    这是case内容测试之一。\cite{cerutiRankadaptiveRobustIntegrator2022}
-\end{case}
-
-\begin{case}
-    这是case内容测试之二。\parencite{cerutiUnconventionalRobustIntegrator2022}
-\end{case}
 
 \begin{note}
     这是note内容测试。\autocite{kochDynamicalLowRank2007}
