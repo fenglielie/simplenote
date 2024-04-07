@@ -273,6 +273,7 @@
     \newcommand\figref[1]{Figure~\ref{#1}}
     \newcommand\tabref[1]{Table~\ref{#1}}
 
+    \newcommand{\notename}{Note}
     \newcommand{\definitionname}{Definition}
     \newcommand{\theoremname}{Theorem}
     \newcommand{\lemmaname}{Lemma}
