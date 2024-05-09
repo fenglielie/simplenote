@@ -417,28 +417,34 @@
 \SIMPLENOTE@newtheorem{corollary}{thmstyle}
 \SIMPLENOTE@newtheorem{proposition}{thmstyle}
 
-%% 带编号的example
+%% 带编号且支持可选名称的example
 \newcounter{exam}
 \setcounter{exam}{0}
 \newenvironment{example}[1][]{
     \refstepcounter{exam}
-    \par\noindent\textbf{\color{ecolor}{\examplename} \theexam #1 }\rmfamily}{
+    \par\noindent\textbf{\color{ecolor}{\examplename} \theexam
+    \ifblank{#1}{}{ (#1)}}
+    \rmfamily}{
     \par\ignorespacesafterend}
 
-%% 带编号的problem
+%% 带编号且支持可选名称的problem
 \newcounter{prob}
 \setcounter{prob}{0}
 \newenvironment{problem}[1][]{
     \refstepcounter{prob}
-    \par\noindent\textbf{\color{ecolor}{\problemname} \theprob #1 }\rmfamily}{
+    \par\noindent\textbf{\color{ecolor}{\problemname} \theprob
+    \ifblank{#1}{}{ (#1)}}
+    \rmfamily}{
     \par\ignorespacesafterend}
 
-%% 带编号的exercise
+%% 带编号且支持可选名称的exercise
 \newcounter{exer}
 \setcounter{exer}{0}
 \newenvironment{exercise}[1][]{
     \refstepcounter{exer}
-    \par\noindent\textbf{\color{ecolor}{\exercisename} \theexer #1 }\rmfamily}{
+    \par\noindent\textbf{\color{ecolor}{\exercisename} \theexer #1
+    \ifblank{#1}{}{ (#1)}}
+    \rmfamily}{
     \par\ignorespacesafterend}
 
 % 不带编号的note，remark，solution
